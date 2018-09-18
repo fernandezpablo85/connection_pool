@@ -40,6 +40,7 @@ public class NoPool extends Http
         String request = "GET " + path + " HTTP/1.1\n"
                 + "Host: " + host + "\n"
                 + "User-Agent: homemade/1.0.0\n"
+                + "Connection: close\n"
                 + "Accept: */*\n\n";
 
         return request.getBytes(StandardCharsets.UTF_8);
