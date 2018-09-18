@@ -25,11 +25,14 @@ public class NoPool extends Http
         System.out.println(uri.getHost());
         Socket s = new Socket(uri.getHost(), 80);
         assert s.isConnected();
+        System.out.println("socket connected");
         s.getOutputStream().write(getHttpRequest(uri));
-        s.close();
+        System.out.println("response written");
         String response = CharStreams.toString(new InputStreamReader(s.getInputStream(), StandardCharsets.UTF_8));
+        System.out.println("response read");
         System.out.println(response);
-//        s.close();
+        s.close();
+        System.out.println("socket closed");
         return 200;
     }
 
